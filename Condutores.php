@@ -12,10 +12,10 @@ Class Condutores
 	public function ConectaBD()
 	{
 		// ----------------------- MYSQL --------------------
-		$host = "us-cdbr-east-05.cleardb.net";
-		$usuario = "bf19941fe40a58";
-		$senha = "43dec370";
-		$bd = "heroku_f281e3cfa8649d0";
+		$host = getenv("DB_HOST") ?: "localhost";
+		$usuario = getenv("DB_USER") ?: "root";
+		$senha = getenv("DB_PASSWORD") ?: "";
+		$bd = getenv("DB_NAME") ?: "locauto";
 		$this->con = mysqli_connect($host, $usuario, $senha, $bd);
 		return $this->con;
 	}
